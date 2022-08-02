@@ -21,13 +21,17 @@ def main():
     st.title("Standardisasi Akun APBD")
     
     bagan_df = pd.read_excel('Standar Akun Level 6.xlsx')
+    with st.expander('Upload Model'):
+        data = st.file_uploader('')
     akun = st.text_input(label="Uraian Akun")
-    model = open("akun_enc.pkl", "rb")
-    akun_enc = joblib.load(model)
-    a = similarity(akun, akun_enc)
-    out = bagan_df.iloc[a]['standarsubrinci']
+#     model = open("akun_enc.pkl", "rb")
+    if data != Null or data !=[]:
+        model = open(data, "rb")
+        akun_enc = joblib.load(model)
+        a = similarity(akun, akun_enc)
+        out = bagan_df.iloc[a]['standarsubrinci']
 
-    st.title("Klasifikasi Akun: "+out)
+        st.title("Klasifikasi Akun: "+out)
 
 if __name__=='__main__':
     main()
