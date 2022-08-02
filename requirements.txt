@@ -2,3 +2,4 @@ streamlit
 torch
 sentence-transformers
 joblib
+openpyxl
