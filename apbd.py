@@ -21,8 +21,9 @@ def main():
     st.title("Standardisasi Akun APBD")
     
     bagan_df = pd.read_excel('Standar Akun Level 6.xlsx')
-    data = st.file_uploader('')
+    st.dataframe(bagan_df)
     akun = st.text_input(label="Uraian Akun")
+    data = st.file_uploader('')
 #     model = open("akun_enc.pkl", "rb")
 #     try data != Null:
     try:
